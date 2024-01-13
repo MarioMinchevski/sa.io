@@ -1,0 +1,106 @@
+@use '../abstracts/mixins' as *;
+@use '../abstracts/variables' as *;
+
+#artist-home-page {
+
+    .current-artist-info {
+        padding: 1.625rem 1.125rem;
+        background-color: $bg-color-secondary;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, auto);
+
+        gap: 1.125rem;
+        text-align: center;
+
+        .artist-info__item-sold {
+            grid-row: 1/2;
+            grid-column: 1/2;
+        }
+
+        .artist-info__total-income {
+            grid-row: 1/2;
+            grid-column: 2/3;
+        }
+
+        .artist-info__auction-item {
+            grid-row: 2/3;
+            grid-column: 1/-1;
+
+            background-color: $color-secondary;
+            color: $bg-color-primary;
+            border-radius: $border-radius-one;
+            padding-block: 0.625rem;
+
+            span {
+                line-height: 60px;
+            }
+        }
+
+        .artist-info__item-sold,
+        .artist-info__total-income {
+            background-color: $color-primary;
+            color: $bg-color-primary;
+            border-radius: $border-radius-one;
+            padding-block: 0.9rem;
+        }
+
+        .artist-info__item-sold,
+        .artist-info__total-income,
+        .artist-info__auction-item {
+            p {
+                font-weight: $font-weight-light;
+            }
+
+            span {
+                font-size: $font-size-large;
+                font-weight: $font-weight-medium;
+            }
+        }
+    }
+
+    .current-artist-chart {
+        padding: 1.25rem 1.125rem;
+
+        p {
+            color: $color-primary;
+            font-size: $font-size-small;
+            font-weight: $font-weight-light;
+            margin-bottom: 0.563rem;
+        }
+
+        .radio-buttons-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 2.875rem;
+
+            input[type="radio"] {
+                display: none;
+            }
+
+            input[type="radio"]:checked+label {
+                background-color: $color-secondary;
+            }
+
+            label {
+                color: $bg-color-primary;
+                background-color: $color-primary;
+                font-size: $font-size-extra-small;
+                font-weight: $font-weight-bold;
+                text-align: center;
+                cursor: pointer;
+
+                border-radius: $border-radius-one;
+                box-shadow: $box-shadow-one;
+                width: 100px;
+                padding-block: 6.5px;
+
+            }
+        }
+    }
+
+    #artist-info-chart {
+        height: 500px;
+    }
+}

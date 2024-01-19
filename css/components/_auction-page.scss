@@ -1,0 +1,279 @@
+@use '../abstracts/mixins' as *;
+@use '../abstracts/variables' as *;
+
+#auction-page {
+    position: relative;
+
+    .auction-wrap {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+
+        .auction-timer {
+            font-size: $font-size-medium;
+            font-weight: $font-weight-bold;
+            color: $color-primary;
+
+            margin-block: 1.5rem;
+        }
+
+        .auction-item-container {
+
+            color: $color-primary;
+            background-color: $bg-color-primary;
+            width: 100%;
+
+            box-shadow: $box-shadow-three;
+
+            .auction-item__img-box {
+                img {
+                    height: 262px;
+                    width: 100%;
+                    object-fit: cover;
+                    object-position: center;
+                }
+            }
+
+            .auction-item__text-box {
+                padding: 3px 18px 5px;
+
+                .artist-and-price-container {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+
+                    .artist-name {
+                        font-family: $font-family-secondary;
+                        font-size: $font-size-headidng-large;
+                        line-height: 25px;
+                        margin-bottom: 4px;
+                    }
+
+                    .item-price {
+                        color: $bg-color-primary;
+                        background-color: $color-primary;
+                        padding: 1px 8px;
+                        border-radius: $border-radius-one;
+                        font-size: $font-size-extra-small;
+                        box-shadow: $box-shadow-one;
+                    }
+                }
+
+                .item-title {
+                    font-size: $font-size-headidng-small;
+                    margin-bottom: 3px;
+                }
+
+                .item-description {
+                    font-size: $font-size-base;
+                }
+            }
+        }
+
+        .bidding-form {
+            margin-top: 1.5rem;
+            margin-bottom: 2rem;
+            width: 90%;
+
+            border: 2px solid $color-primary;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            position: relative;
+            padding-bottom: 3rem;
+
+            h3 {
+                font-size: $font-size-headidng-medium;
+                font-weight: $font-weight-bold;
+                color: $color-primary;
+
+                text-align: center;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                margin-block: 1rem;
+            }
+
+            .bidding-form-group {
+                position: relative;
+
+                .bidding-input {
+                    background-color: transparent;
+                    border: none;
+                    outline: none;
+                    border-bottom: 2px solid $color-primary;
+                    text-align: center;
+
+                    width: 5rem;
+                    font-size: $font-size-headidng-medium;
+                    font-weight: $font-weight-bold;
+                    color: $color-primary;
+                }
+
+                @extend %input-type-number;
+
+                .message {
+                    position: absolute;
+                    text-align: center;
+                    width: 400%;
+                    left: 50%;
+                    top: 2rem;
+                    transform: translateX(-50%);
+
+                    font-size: $font-size-headidng-small;
+                    color: $color-primary;
+                    font-weight: $font-weight-medium;
+                }
+            }
+
+            .bid-btn {
+                position: absolute;
+                bottom: 0%;
+                left: 50%;
+
+                transform: translate(-50%, 50%);
+                text-transform: uppercase;
+                letter-spacing: 1px;
+
+                background-color: $color-primary;
+                color: $bg-color-primary;
+                font-weight: $font-weight-medium;
+                text-transform: uppercase;
+                padding: 0.25rem 0.75rem;
+                border-radius: $border-radius-two;
+                border: none;
+                cursor: pointer;
+                transition: all 200ms ease-in-out;
+            }
+        }
+
+        .bidding-list {
+            width: 90%;
+
+            .bidding-list-header {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                margin-bottom: 1rem;
+
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                font-size: $font-size-headidng-medium;
+                font-weight: $font-weight-medium;
+                color: $color-primary;
+            }
+
+            .bidding-list-body {
+                display: flex;
+                align-items: flex-start;
+                justify-content: space-between;
+
+                color: $color-primary;
+                font-weight: $font-weight-medium;
+
+                .yourBids,
+                .otherBids {
+                    li {
+                        display: flex;
+                        align-items: baseline;
+                        gap: 1rem;
+
+                        font-size: $font-size-headidng-medium;
+
+                        &:not(:first-of-type) {
+                            margin-top: 0.25rem;
+                        }
+                    }
+                }
+
+                img {
+                    width: 30px;
+                    height: 40px;
+                    margin-top: 2px;
+                }
+
+            }
+
+            .highest-bid {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                font-size: $font-size-headidng-medium;
+                font-weight: $font-weight-medium;
+                color: $color-primary;
+
+                .highestBidNum {
+                    width: 5rem;
+                    text-align: center;
+                    border-bottom: 2px solid $color-primary;
+
+                    margin-bottom: 1.5rem;
+                }
+            }
+        }
+    }
+
+    .no-auction {
+        text-align: center;
+        color: $bg-color-primary;
+        background-color: $color-primary;
+        border-radius: $border-radius-two;
+
+        padding: 1rem 2rem;
+
+        width: 80%;
+        margin-top: 1.5rem;
+        margin-inline: auto;
+
+        p {
+            font-size: $font-size-medium;
+            font-weight: $font-weight-medium;
+            line-height: 32px;
+        }
+    }
+
+    .auction-message {
+        position: absolute;
+
+        background-color: $color-primary;
+        color: $bg-color-primary;
+        border-radius: $border-radius-three;
+        padding: 1rem 2rem;
+        text-align: center;
+
+        h4 {
+            font-size: $font-size-headidng-large;
+            font-weight: $font-weight-medium;
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            font-size: $font-size-headidng-medium;
+            margin-bottom: 1rem;
+        }
+
+        .auctionBackBtn {
+            @extend %buttons-wrap-btn;
+
+            &:hover {
+                filter: brightness(0.9);
+            }
+        }
+
+        margin-inline: auto;
+        min-width: 330px;
+
+        z-index: 9999;
+        left: 50%;
+        top: 50%;
+
+        transform: translate(-50%, -50%);
+    }
+}
